@@ -51,7 +51,7 @@ PORT   STATE SERVICE REASON         VERSION
 Nothing special in these pages.
 
 ### KEEP CALM AND DRINK FRISTI
-* This is what I saw in index page, so there should have some hints. Let's try http://10.10.10.132/fristi/  
+* This is what I saw in index page, so there should have some hints. Let's try http://192.168.0.110/fristi/  
 
 ![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/login.png) 
 
