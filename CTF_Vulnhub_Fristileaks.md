@@ -191,7 +191,7 @@ Nice try, but wrong user ;)
 
 * Found that this a file of user root, I currently cannot access to it. Went back and checked .bash_history
 
-![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/bash history.png)  
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/bash_history.png)  
 
 * The hint is that fristigod was always using command `sudo -u`. Addtionaly, doCom looks like a execution that runs command line. 
 * Checked it out and it needs password. We could try what we got previously:  
