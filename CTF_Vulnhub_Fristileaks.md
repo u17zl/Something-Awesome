@@ -156,11 +156,11 @@ sh-4.1$ echo "/home/admin/chmod 777 /home/admin" > /tmp/runthis
 ```
 * Then we have got the privilege of admin:
 
-![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/adadmin.png)
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/cdadmin.png)
 
 * Now inside it I could see a bunch of interesting files, some encrypted files and a python script used to encrypt the files.
 
-![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/adadmin.png)
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/cryptedtxt.png)
 ![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/python.png)
 
 * It seems that these files are encoded with this python file. Use it to decode:
@@ -171,72 +171,59 @@ root@kali:~# python cryptpass.py =RFn0AKnlMHMPIzpyuTI0ITG
 LetThereBeFristi!
 ```
 
-* One if them could be password of fristigod, let's have a try
+* One if them could be password of fristigod, let's have a try. Something went wrong with tty. Instead the fristigod user was able to run the sudo command as follow:
 
-这有可能是用户fristgod 的密码我们换一下用户试试！
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/tty.png)
 
-image.png
+* After that, we could use it as normal. Inside it there was some secret file.
 
-失败了….查了一下网上是这样解释的：跟 su 命令的实现有关； B环境上su的实现应该是判断标准输入是不是tty ； 而A环境上su的实现则允许从其他文件读取密码。方法如下：
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/vvar_fristigod.png)
 
-Python -c ‘import pty;pty.spawn(“/bin/sh”)’
+* Further, I checked doCom in ./.secret_admin_stuff
 
-image.png
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/trydoCom.png)
 
-接下来就可以正常使用了。
+```
+sh-4.1$ ./doCom
+doCom
+Nice try, but wrong user ;)
+```
 
-image.png
+* Found that this a file of user root, I currently cannot access to it. Went back and checked .bash_history
 
-现在我们已经成功进入fristigod账户
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/bash history.png)
 
-Ls试试：
+* The hint is that fristigod was always using command `sudo -u`. Addtionaly, doCom looks like a execution that runs command line. 
+* Checked it out and it needs password. We could try what we got previously:  
 
-image.png
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/sudo -l.png)
 
-没有东西…
+* Use`bash-4.1$ sudo -u fristi ./doCom /bin/bash` to generate a shell:
 
--la试试
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/getroot.png)
 
-image.png
+* Ok, it successed!
+* Back to `/root` directory and cathe the flag:
 
-原来都藏起来了。。到.secret_admin_stuff看看
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/flag.png)
 
-image.png
+* FLAG: 
+```
+Congratulations on beating FristiLeaks 1.0 by Ar0xA [https://tldr.nu]
 
-继续 ls -la 查看具体信息
+I wonder if you beat it in the maximum 4 hours it's supposed to take!
 
-image.png
+Shoutout to people of #fristileaks (twitter) and #vulnhub (FreeNode)
 
-发现这个是个root的文件权限应该是不够的
 
-image.png
+Flag: Y0u_kn0w_y0u_l0ve_fr1st1
+```
 
-我们能回去看看history有没有一些线索
+* VM rooted and completed!
 
-image.png
+## Conclusion
+This a very interesting CTF challenge, involving a bunch of pentesting methodologies, which makes me learn a lot from this process. Thanks again to author Ar0xA for this CTF challenge!
 
-可以看到 “fristigod”用户一直sudo来执行命令
-
-试试 sudo -l
-
-image.png
-
-让输入密码，上面我们得到了两个密码
-
-image.png
-
-呃。。。再试试
-
-image.png
-
-成功了...居然是一个密码....好吧。
-
-image.png
-
-image.png
-
-image.png
-
-image.png
-
-专栏
+## Referece
+https://www.vulnhub.com/entry/fristileaks-13,133/
+https://5h4d0wb0y.github.io/2017-04-10-fristileaks/#vulnerability-analysis
