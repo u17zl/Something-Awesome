@@ -14,82 +14,50 @@ User will need to manually edit the s MAC address to: 08:00:27:A5:A6:76
 
 ## Exploit:
 ### IP address:
+
 ![image text](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/1.png)  
+
 The target IP is 192.168.0.110
 
 ### Port Scanning:
 Running Nmap  
-`nmap -p- -sS -sV -vv 192.168.0.110`  
+```
+nmap -p- -sS -sV -vv 192.168.0.110
+```  
 over the VM revealed that the only common port that was open, was port 80, which it identified as running Apache on CentOS:    
 ```
 PORT   STATE SERVICE REASON         VERSION
 80/tcp open  http    syn-ack ttl 64 Apache httpd 2.2.15 ((CentOS) DAV/2 PHP/5.3.3)
 ```
+### Robots.txt
+* I browsed IP address and this is what it looks like:  
 
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/index.png)  
 
-Netdiscover –r 10.10.10.0/24
+* Let us try if there something in 192.168.0.110/Robots.txt
 
-image.png
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/robots.png)  
 
-可以发现目标主机在10.10.10.132的位置
+* robots.txt: 3 disallowed entries:
+```
+/cola
+/sisi
+/beer
+```
+* However, every page look like the same, as follow:
 
-服务发现
-nmap -sS -Pn -T4 -p- 10.10.10.132
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/cola.png)  
+Nothing special in these pages.
 
-image.png
+### KEEP CALM AND DRINK FRISTI
+* This is what I saw in index page, so there should have some hints. Let's try http://10.10.10.132/fristi/  
 
-可以看到打开了80端口，service为HTTP
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/login.png) 
 
-枚举80端口
-既然只有一个端口，那就扫描再具体扫描80端口：
+* Tried some combo of admin and password, and different forms of SQLi, but I did not be able to login.  
+* Never just look at the surface! we should look at the source code. Wow!  
 
-nmap -A -O -p80 10.10.10.132
-
-image.png
-
-我们看到以下具体信息： Apache httpd 2.2.15 ((CentOS) DAV/2 PHP/5.3.3) http-robots.txt: 3 disallowed entries
-
-现在我们浏览web服务
-
-image.png
-
-现在我们需要验证robots.txt是否存在，在很多情况下，nmap是很准确的。
-
-image.png
-
-现在，如果根据条目能顺利进入系统，那就太容易了，肯定不会那么容易的。
-
-image.png
-
-意料之中，上面三个条目都只能进入这个画面 所以这三个已经没有什么用了，我们现在来跑一下目录；
-
-dirb http://10.10.10.132
-
-image.png
-
-没什么特别的发现，只有几张照片；
-
-image.png
-
-不过这个keep-calm 似乎是一个提示，因为他说 KEEP CALM AND DRINK FRISTI 试试http://10.10.10.132/fristi/
-
-image.png
-
-image.png
-
-我们再次运行 目录枚举：
-
-dirb http://10.10.10.132/fristi/
-
-image.png
-
-发现了index页面 不过…
-
-image.png
-
-好像是个死胡同。
-
-不过永远不要只事物看到表面，我们一定要看看代码！
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/login_html.png)  
 
 image.png
 
