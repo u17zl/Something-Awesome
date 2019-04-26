@@ -191,16 +191,16 @@ Nice try, but wrong user ;)
 
 * Found that this a file of user root, I currently cannot access to it. Went back and checked .bash_history
 
-![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/bash history.png)
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/bash history.png)  
 
 * The hint is that fristigod was always using command `sudo -u`. Addtionaly, doCom looks like a execution that runs command line. 
 * Checked it out and it needs password. We could try what we got previously:  
 
-![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/sudo -l.png)
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/sudo-l.png)
 
 * Use`bash-4.1$ sudo -u fristi ./doCom /bin/bash` to generate a shell:
 
-![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/getroot.png)
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/getroot.png)  
 
 * Ok, it successed!
 * Back to `/root` directory and cathe the flag:
