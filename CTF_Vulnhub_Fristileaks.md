@@ -12,7 +12,7 @@ FristiLeaks is a VM created by Ar0xA and the difficulty rating is descriped as b
 ### Settings:
 User will need to manually edit the s MAC address to: 08:00:27:A5:A6:76
 
-## Exploit:
+## Exploitation:
 ### IP address:
 
 ![image text](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/1.png)  
@@ -44,9 +44,10 @@ PORT   STATE SERVICE REASON         VERSION
 /sisi
 /beer
 ```
-* However, every page look like the same, as follow:
+* However, every page looked like the same, as follow:
 
 ![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/cola.png)  
+
 Nothing special in these pages.
 
 ### KEEP CALM AND DRINK FRISTI
@@ -59,119 +60,118 @@ Nothing special in these pages.
 
 ![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/login_html.png)  
 
-image.png
+* There was a message, which was left by a man named eezeepz.
+* Then there's the possibility that admin might use eezeepz as his username or password.
+* Look though down. We saw a large block of base64-encoded codes:
+```
+iVBORw0KGgoAAAANSUhEUgAAAW0AAABLCAIAAAA04UHqAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARSSURBVHhe7dlRdtsgEIVhr8sL8nqymmwmi0kl
+S0iAQGY0Nb01//dWSQyTgdxz2t5+AcCHHAHgRY4A8CJHAHiRIwC8yBEAXuQIAC9yBIAXOQLAixw
+B4EWOAPAiRwB4kSMAvMgRAF7kCAAvcgSAFzkCwIscAeBFjgDwIkcAeJEjALzIEQBe5AgAL5kc+f
+m63yaP7/XP/5RUM2jx7iMz1ZdqpguZHPl+zJO53b9+1gd/0TL2Wull5+RMpJq5tMTkE1paHlVXJJ
+Zv7/d5i6qse0t9rWa6UMsR1+WrORl72DbdWKqZS0tMPqGl8LRhzyWjWkTFDPXFmulC7e81bxnNOvb
+DpYzOMN1WqplLS0w+oaXwomXXtfhL8e6W+lrNdDFujoQNJ9XbKtHMpSUmn9BSeGf51bUcr6W+VjNd
+jJQjcelwepPCjlLNXFpi8gktXfnVtYSd6UpINdPFCDlyKB3dyPLpSTVzZYnJR7R0WHEiFGv5NrDU
+12qmC/1/Zz2ZWXi1abli0aLqjZdq5sqSxUgtWY7syq+u6UpINdOFeI5ENygbTfj+qDbc+QpG9c5
+uvFQzV5aM15LlyMrfnrPU12qmC+Ucqd+g6E1JNsX16/i/6BtvvEQzF5YM2JLhyMLz4sNNtp/pSkg1
+04VajmwziEdZvmSz9E0YbzbI/FSycgVSzZiXDNmS4cjCni+kLRnqizXThUqOhEkso2k5pGy00aLq
+i1n+skSqGfOSIVsKC5Zv4+XH36vQzbl0V0t9rWb6EMyRaLLp+Bbhy31k8SBbjqpUNSHVjHXJmC2Fg
+tOH0drysrz404sdLPW1mulDLUdSpdEsk5vf5Gtqg1xnfX88tu/PZy7VjHXJmC21H9lWvBBfdZb6Ws
+30oZ0jk3y+pQ9fnEG4lNOco9UnY5dqxrhk0JZKezwdNwqfnv6AOUN9sWb6UMyR5zT2B+lwDh++Fl
+3K/U+z2uFJNWNcMmhLzUe2v6n/dAWG+mLN9KGWI9EcKsMJl6o6+ecH8dv0Uu4PnkqDl2rGuiS8HK
+ul9iMrFG9gqa/VTB8qORLuSTqF7fYU7tgsn/4+zfhV6aiiIsczlGrGvGTIlsLLhiPbnh6KnLDU12q
+mD+0cKQ8nunpVcZ21Rj7erEz0WqoZ+5IRW1oXNB3Z/vBMWulSfYlm+hDLkcIAtuHEUzu/l9l867X34
+rPtA6lmLi0ZrqX6gu37aIukRkVaylRfqpk+9HNkH85hNocTKC4P31Vebhd8fy/VzOTCkqeBWlrrFhe
+EPdMjO3SSys7XVF+qmT5UcmT9+Ss//fyyOLU3kWoGLd59ZKb6Us10IZMjAP5b5AgAL3IEgBc5AsCLH
+AHgRY4A8CJHAHiRIwC8yBEAXuQIAC9yBIAXOQLAixwB4EWOAPAiRwB4kSMAvMgRAF7kCAAvcgSAFzk
+CwIscAeBFjgDwIkcAeJEjALzIEQBe5AgAL3IEgBc5AsCLHAHgRY4A8Pn9/QNa7zik1qtycQAAAABJR
+U5ErkJggg==
+```
+* Decode it and save it as png file:
 
-看到一有一条信息，这是一个叫eezeepz的人留下来的。
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/decode.png)  
 
-那么那就有这种可能：他也许用eezeepz当做他的用户名或者密码。
+* It looks like a password, try 
+```
+username:eezeepz password:keKkeKKeKKeKkEkkEk
+```
 
-再向下看。我们看到了一大块用base64编码的段落
+* Bingo, we made it and there is a pciture upload function. 
 
-image.png
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/upload1.png)  
 
-这里我使用nano 使它变成单行，方便命令行编码
+* Needless to say, a php shell cannot be better.  
+* Shell can download here: http://pentestmonkey.net/tools/web-shells/php-reverse-shell  
+* Do not forget to modify source code. Edit the following lines of php-reverse-shell.php:  
 
-base64 -d /tmp/encoded.txt
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/php_shell.png) 
 
-image.png
+* uploaded it, but got the response of wrong file type, possibly because there is a filter in backend.  
 
-这是一个PNG格式的图画，保存为PNG
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/php wrong.png)  
 
-base64 -d /tmp/encoded.txt > decoded.png
+* No worries, just added a jpg extension to the php reverse shell, then I launched the netcat listener and then I opened the shell we uploaded. Connection established.  
 
-然后可以用任意工具查看，这里用feh
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/jpg.png) 
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/shell1.png) 
 
-image.png
 
-看起来像是个密码！赶紧试试 username:eezeepz password:keKkeKKeKKeKkEkkEk
+### Privilege Escalation
+* Checked through direcories, see what can be exploited. It seems that there is something interesting in /HOME, try it out:
 
-image.png
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/cdhome.png)  
 
-这时候 不用多说 上传sell
+* We do not have access of admin:
 
-Sell 可以在这里下载http://pentestmonkey.net/tools/web-shells/php-reverse-shell
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/admindeny.png)  
 
-cp /usr/share/webshells/php/php-reverse-shell.php reverse-shell.php
-vi reverse-shell.php
-做一些必要的修改，ip地址和监听端口。
+* There is a old friend, eezeepz. See what inside:  
 
-image.png
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/cdeeze.png)  
 
-现在设置 netcat 监听 建立连接：
+* There is a notes.txt file that interests me:
+```
+sh-4.1$ cat notes.txt
+cat notes.txt
+Yo EZ,
 
-nc -nlvp 8888
+I made it possible for you to do some automated checks, 
+but I did only allow you access to /usr/bin/* system binaries. I did
+however copy a few extra often needed commands to my 
+homedir: chmod, df, cat, echo, ps, grep, egrep so you can use those
+from /home/admin/
 
-image.png
+Don't forget to specify the full path for each binary!
 
-看来只有png, jpg, gif 能上传
+Just put a file called "runthis" in /tmp/, each line one command. The 
+output goes to the file "cronresult" in /tmp/. It should 
+run every minute with my account privileges.
 
-image.png
+- Jerry
+```
+* Nice! We got a hint, just followed it:
+```
+sh-4.1$ touch /tmp/runthis
+sh-4.1$ echo "/home/admin/chmod 777 /home/admin" > /tmp/runthis
+```
+* Then we have got the privilege of admin:
 
-修改一下后缀加上.jpg
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/adadmin.png)
 
-image.png
+* Now inside it I could see a bunch of interesting files, some encrypted files and a python script used to encrypt the files.
 
-上传成功！
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/adadmin.png)
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/python.png)
 
-现在打开上传的sell
+* It seems that these files are encoded with this python file. Use it to decode:
+```
+root@kali:~# python cryptpass.py mVGZ3O3omkJLmy2pcuTq
+thisisalsopw123
+root@kali:~# python cryptpass.py =RFn0AKnlMHMPIzpyuTI0ITG
+LetThereBeFristi!
+```
 
-image.png
-
-现在已经得到了一个低权限权限
-
-image.png
-
-权限提升
-
-image.png
-
-看一下目录，看看有什么可以挖掘的东西，个人对HOME比较感兴趣，进去试试
-
-image.png
-
-居然马上看到关键人物eezeepz！继续向前看
-
-image.png
-
-文件很多 挑特别的看，notes.txt比较显眼，打开试试。
-
-image.png
-我们得到了提示，照着做就行了！在/tmp下创建一个＂runtis＂文件
-
-image.png
-
-赋予权限
-image.png
-
-现在我们可以阅读 /home/admin 下的内容了
-
-image.png
-
-有几个文件。依次看一下 cryptpass.py
-
-image.png
-
-Cryptepass.txt
-
-image.png
-
-whoisyourgodnow.txt
-
-image.png
-
-看样子应该是用了py文件去加密的。我们重写一下文件：
-
-image.png
-
-解密试试
-
-image.png
-
-分别得到
-
-1.mVGZ3O3omkJLmy2pcuTq ：thisisalsopw123
-
-2.=RFn0AKnlMHMPIzpyuTI0ITG ：LetThereBeFristi!
+* One if them could be password of fristigod, let's have a try
 
 这有可能是用户fristgod 的密码我们换一下用户试试！
 
