@@ -14,7 +14,19 @@ User will need to manually edit the s MAC address to: 08:00:27:A5:A6:76
 
 ## Exploit:
 ### IP address:
-![image text](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/ip.png)
+![image text](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/1.png)  
+The target IP is 192.168.0.110
+
+### Port Scanning:
+Running Nmap  
+`nmap -p- -sS -sV -vv 192.168.0.110`  
+over the VM revealed that the only common port that was open, was port 80, which it identified as running Apache on CentOS:    
+```
+PORT   STATE SERVICE REASON         VERSION
+80/tcp open  http    syn-ack ttl 64 Apache httpd 2.2.15 ((CentOS) DAV/2 PHP/5.3.3)
+```
+
+
 Netdiscover –r 10.10.10.0/24
 
 image.png
