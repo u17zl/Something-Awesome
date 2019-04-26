@@ -108,7 +108,7 @@ username:eezeepz password:keKkeKKeKKeKkEkkEk
 
 * uploaded it, but got the response of wrong file type, possibly because there is a filter in backend.  
 
-![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/php wrong.png)  
+![img](https://raw.githubusercontent.com/u17zl/Something-Awesome/master/src/php_wrong.png)  
 
 * No worries, just added a jpg extension to the php reverse shell, then I launched the netcat listener and then I opened the shell we uploaded. Connection established.  
 
@@ -225,5 +225,5 @@ Flag: Y0u_kn0w_y0u_l0ve_fr1st1
 This a very interesting CTF challenge, involving a bunch of pentesting methodologies, which makes me learn a lot from this process. Thanks again to author Ar0xA for this CTF challenge!
 
 ## Referece
-https://www.vulnhub.com/entry/fristileaks-13,133/
+https://www.vulnhub.com/entry/fristileaks-13,133/  
 https://5h4d0wb0y.github.io/2017-04-10-fristileaks/#vulnerability-analysis
